@@ -1,0 +1,18 @@
+policies:
+  request:
+    max_prompt_characters: 20000
+    max_messages: 64
+    allowed_priorities:
+      - low
+      - normal
+      - high
+  response:
+    max_response_characters: 20000
+    blocked_patterns:
+      - "(?i)api[_ -]?key\\s*="
+      - "(?i)password\\s*="
+  responsible_ai:
+    prompt_logging_enabled_by_default: false
+    pii_redaction_enabled: false
+    human_review_hook_enabled: false
+

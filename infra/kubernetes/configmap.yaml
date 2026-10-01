@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llm-gateway-config
+  namespace: llm-gateway
+data:
+  ENVIRONMENT: production
+  REDIS_REQUIRED: "true"
+  PREFER_MOCK_PROVIDER: "true"
+

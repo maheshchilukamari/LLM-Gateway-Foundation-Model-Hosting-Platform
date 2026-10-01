@@ -1,0 +1,92 @@
+models:
+  - id: distilgpt2
+    provider: huggingface
+    model_family: gpt2
+    model_version: "1.0"
+    task_type: text-generation
+    context_window: 1024
+    device: cpu
+    average_latency_ms: 850
+    estimated_cost_per_1k_tokens: 0.0001
+    max_batch_size: 4
+    availability: enabled
+    health_status: HEALTHY
+    quality_score: 0.60
+    throughput_score: 0.70
+    supported_capabilities:
+      - text-generation
+      - chat-completion
+    deployment_target: local
+    governance:
+      owner: platform-team
+      approval_status: approved-for-demo
+      license: mit
+      source: https://huggingface.co/distilgpt2
+      risk_level: medium
+      supported_use_cases:
+        - demonstration
+        - local-development
+      restricted_use_cases:
+        - regulated-production-decisions
+
+  - id: google/flan-t5-small
+    provider: huggingface
+    model_family: flan-t5
+    model_version: "1.0"
+    task_type: text2text-generation
+    context_window: 512
+    device: cpu
+    average_latency_ms: 1200
+    estimated_cost_per_1k_tokens: 0.0001
+    max_batch_size: 2
+    availability: enabled
+    health_status: HEALTHY
+    quality_score: 0.70
+    throughput_score: 0.55
+    supported_capabilities:
+      - text-generation
+      - instruction-following
+      - rag
+    deployment_target: local
+    governance:
+      owner: platform-team
+      approval_status: approved-for-demo
+      license: apache-2.0
+      source: https://huggingface.co/google/flan-t5-small
+      risk_level: medium
+      supported_use_cases:
+        - demonstration
+        - question-answering
+      restricted_use_cases:
+        - medical-or-legal-advice
+
+  - id: sentence-transformers/all-MiniLM-L6-v2
+    provider: huggingface
+    model_family: sentence-transformers
+    model_version: "1.0"
+    task_type: embeddings
+    context_window: 256
+    device: cpu
+    average_latency_ms: 150
+    estimated_cost_per_1k_tokens: 0.00005
+    max_batch_size: 16
+    availability: enabled
+    health_status: HEALTHY
+    quality_score: 0.75
+    throughput_score: 0.85
+    supported_capabilities:
+      - embeddings
+      - rag
+    deployment_target: local
+    governance:
+      owner: platform-team
+      approval_status: approved-for-demo
+      license: apache-2.0
+      source: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+      risk_level: low
+      supported_use_cases:
+        - semantic-search
+        - retrieval
+      restricted_use_cases:
+        - biometric-identification
+

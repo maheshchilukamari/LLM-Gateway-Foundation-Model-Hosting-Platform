@@ -1,0 +1,41 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/example/llm-gateway
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+env:
+  ENVIRONMENT: production
+  REDIS_REQUIRED: "true"
+  PREFER_MOCK_PROVIDER: "true"
+
+secrets:
+  LLM_GATEWAY_API_KEY: replace-me
+  ADMIN_API_KEY: replace-me-admin
+  DATABASE_URL: postgresql+asyncpg://user:password@postgres:5432/llm_gateway
+  REDIS_URL: redis://redis:6379/0
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    cpu: "1"
+    memory: 2Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+ingress:
+  enabled: false
+  className: alb
+  host: llm-gateway.example.com
+

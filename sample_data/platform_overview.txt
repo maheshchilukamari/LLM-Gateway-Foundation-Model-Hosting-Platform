@@ -1,0 +1,5 @@
+An LLM Gateway centralizes access to multiple model providers. It handles API
+authentication, routing, caching, retries, fallback, policy enforcement,
+observability, and governance metadata so application teams can use one stable
+contract instead of integrating with every model backend independently.
+

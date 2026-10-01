@@ -1,0 +1,24 @@
+routing:
+  default_strategy: balanced
+  strategies:
+    balanced:
+      quality_weight: 0.40
+      latency_weight: 0.25
+      cost_weight: 0.20
+      throughput_weight: 0.15
+    resource_aware:
+      quality_weight: 0.25
+      latency_weight: 0.20
+      cost_weight: 0.15
+      throughput_weight: 0.15
+      cpu_weight: 0.15
+      memory_weight: 0.10
+  fallback_chains:
+    google/flan-t5-small:
+      - distilgpt2
+    distilgpt2:
+      - mock-provider
+  constraints:
+    exclude_unhealthy_models: true
+    max_context_utilization: 0.90
+
